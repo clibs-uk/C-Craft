@@ -37,29 +37,48 @@ Full setup details are provided in the [documentation](https://www.clibs.co.uk/d
 
 ## Example
 
-Using scoped memory and a list of doubles:
+Using scoped memory and a user defined struct:
 
 ```c
-#include <c-craft/mem.h>
-#include <list-double.h>
+	#include <c-craft/mem.h>
+	#include "stack-person.h"
 
-int main(void) {
-    MEM_SCOPE mem = sm_create(0);
-    LIST_DOUBLE list = list_double_create(mem);
-    list_double_insert(list, 17.256);
-    // ... use the list ...
-    sm_free(mem); // frees all memory in the scope
-    return 0;
-}
+	typedef struct person
+	{
+		char *name;
+		char *address;
+	}
+	PERSON;
+
+	MEM_SCOPE mem = sm_create(0);
+
+	/* A stack with 10 initial slots. Slots expand on demand. */
+	STACK_PERSON stk = stack_person_create(mem, 10);
+
+	PERSON *person = sm_alloc(mem, sizeof(person));
+	person->name = sm_strdup(mem, "Jim Smith");
+	person->address = sm_strdup(mem, "10 Acacia Avenue");
+
+	stack_person_push(stk, person);
+
+	person = sm_alloc(mem, sizeof(person));
+	person->name = "Rose Jones";
+	person->address = "5 High Street"
+
+	stack_person_push(stk, person);
+
+	/* ...  do some work etc... */
+
+	sm_free(mem); /* Frees persons, names and addresses also */
 ```
 
 Creating a container for a custom type:
 
 ```c
-#define TYPE struct user *
-#define NAME user
-#define UNAME USER
-#include <c-craft/list-decl.h>
+#define TYPE struct person *
+#define NAME person
+#define UNAME PERSON
+#include <c-craft/stack-decl.h>
 #undef TYPE
 #undef NAME
 #undef UNAME
