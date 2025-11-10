@@ -55,13 +55,13 @@ Using scoped memory and a user defined struct:
 	/* A stack with 10 initial slots. Slots expand on demand. */
 	STACK_PERSON stk = stack_person_create(mem, 10);
 
-	PERSON *person = sm_alloc(mem, sizeof(person));
+	PERSON *person = sm_alloc(mem, sizeof(struct person));
 	person->name = sm_strdup(mem, "Jim Smith");
 	person->address = sm_strdup(mem, "10 Acacia Avenue");
 
 	stack_person_push(stk, person);
 
-	person = sm_alloc(mem, sizeof(person));
+	person = sm_alloc(mem, sizeof(struct person));
 	person->name = "Rose Jones";
 	person->address = "5 High Street"
 
