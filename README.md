@@ -35,8 +35,6 @@ C-Craft simplifies building C applications by providing a solid foundation of re
    ```
 5. Link against the compiled library.
 
-Full setup details are provided in the [documentation](https://www.clibs.co.uk/doc/c-craft/index.html).
-
 ## Example
 
 Using scoped memory and a user defined struct:
