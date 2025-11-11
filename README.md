@@ -9,29 +9,31 @@ Developed by **C Libs**, it’s designed for developers who want modern function
 
 C-Craft simplifies building C applications by providing a solid foundation of reusable components. It handles the repetitive infrastructure, collections, strings, memory scopes, and application utilities so you can focus on your core logic.
 
-- **Product Page:** [https://www.clibs.co.uk/c-craft.html](https://www.clibs.co.uk/c-craft.html)  
+- **Product Page:** [https://www.clibs.co.uk/c-craft.html](https://www.clibs.co.uk/c-craft.html)
 - **Full Documentation:** [https://www.clibs.co.uk/doc/c-craft/index.html](https://www.clibs.co.uk/doc/c-craft/index.html)
 
 ## Features
 
-- Scoped memory management: allocate freely and release entire scopes with a single call  
-- Generic collections: lists, vectors, dictionaries, stacks, and queues, supporting both primitive and user-defined types  
-- Enhanced string handling: join, split, search/replace, and regex-based operations  
-- Application utilities: command-line parsing, configuration files, variable substitution, and logging  
-- File and system tools: I/O helpers, date/time functions, random numbers, and hashing  
+- Scoped memory management: allocate freely and release entire scopes with a single call
+- Generic collections: lists, vectors, dictionaries, stacks, and queues, supporting both primitive and user-defined types
+- Enhanced string handling: join, split, search/replace, and regex-based operations
+- Application utilities: command-line parsing, configuration files, variable substitution, and logging
+- File and system tools: I/O helpers, date/time functions, random numbers, and hashing
 - No external dependencies: uses only standard C and Unix system calls
 
 ## Installation
 
-1. Download the latest release from the [C-Craft product page](https://www.clibs.co.uk/c-craft.html).  
-2. Extract the archive and build according to the documentation instructions.  
-3. Include the required headers in your project, for example:
+1. Download the latest release from the [C-Craft product page](https://www.clibs.co.uk/c-craft.html).
+2. Extract the archive and copy the header files folder 'c-craft' to an include location of your 
+   choice.  You should retain the c-craft folder to ensure segregation from other headers.
+3. Copy the static library 'libc-craft.a' to a lib location of your choice.
+4. Include the required headers in your project, for example:
 
    ```c
    #include <c-craft/mem.h>
    #include <c-craft/list-double.h>
    ```
-4. Link against the compiled library or include the relevant source files in your build.  
+5. Link against the compiled library.
 
 Full setup details are provided in the [documentation](https://www.clibs.co.uk/doc/c-craft/index.html).
 
